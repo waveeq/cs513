@@ -15594,5 +15594,41 @@
     "repeat": false,
     "repeatCount": 10,
     "description": "Text transform on cells in column location_clean using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "currency",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "Dollars"
+      }
+    ],
+    "description": "Mass edit cells in column currency"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "currency_symbol",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "$"
+      }
+    ],
+    "description": "Mass edit cells in column currency_symbol"
   }
 ]
