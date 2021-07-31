@@ -1,0 +1,692 @@
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
+#@param expression:value.replace(/\\s+/,'_')
+#@param expression:grel:value.replace("(","").replace(")","").replace("[","").replace("]","").replace("?","").replace("\\"","").replace("\\'","").replace("\\\\","")
+#@param removeOriginalColumn:False
+#@param expression:value
+#@param expression:grel:value.replace("]","")
+#@param separator:;
+#@param expression:grel:value.replace(";","")
+#@param expression:grel:value.replace(")","")
+#@param expression:value.toNumber()
+#@param expression:grel:value.replace("\\"","")
+#@param expression:grel:value.replace("(","")replace(")","")replace("[","")replace("]","")replace("?","")replace("\\"","")replace("\\'","")
+#@param newColumnName:physical_description_type
+#@param expression:grel:value.replace("(","").replace(")","").replace("[","").replace("]","").replace("?","").replace("\\"","").replace("\\'","")
+#@param expression:grel:value.replace("?","")
+#@param expression:grel:value.replace("(","")
+#@param expression:value.trim()
+#@param expression:value.toDate()
+#@param oldColumnName:physical_description_1
+#@param expression:grel:value.replace("[","")
+#@param expression:grel:value.replace("\\'","")
+#@in physical_description_type_1
+#@in physical_description_3_1
+#@in location_clean_4
+#@in date
+#@in physical_description
+#@in event_clean_5
+#@in occasion_clean_4
+#@in physical_description_4_1
+#@in event_clean_1
+#@in place_clean
+#@in physical_description_7_1
+#@in sponsor_clean_7
+#@in event_clean_2
+#@in occasion_clean_6
+#@in sponsor_clean_8
+#@in place_clean_5
+#@in venue_clean_7
+#@in location_clean_7
+#@in venue_clean
+#@in occasion_clean_12
+#@in venue_clean_10
+#@in venue_clean_1
+#@in occasion_clean_20
+#@in occasion_clean_8
+#@in venue_clean_8
+#@in occasion_clean_21
+#@in currency
+#@in location_clean_9
+#@in sponsor_clean
+#@in occasion_clean_1
+#@in location_clean_13
+#@in venue_clean_6
+#@in id
+#@in occasion_clean_18
+#@in event_clean_4
+#@in currency_symbol
+#@in place_clean_2
+#@in event_clean_8
+#@in physical_description_6_1
+#@in location_clean_14
+#@in page_count
+#@in event_clean_3
+#@in occasion_clean
+#@in event_clean_10
+#@in occasion_clean_14
+#@in sponsor_clean_3
+#@in sponsor_clean_11
+#@in sponsor_clean_12
+#@in occasion_clean_2
+#@in venue_clean_4
+#@in sponsor_clean_13
+#@in sponsor_clean_6
+#@in sponsor_clean_14
+#@in sponsor_clean_1
+#@in occasion_clean_9
+#@in venue_clean_2
+#@in venue_clean_11
+#@in sponsor_clean_10
+#@in place_clean_4
+#@in occasion_clean_17
+#@in occasion_clean_5
+#@in place_clean_7
+#@in venue_clean_9
+#@in physical_description_1_1
+#@in sponsor_clean_2
+#@in occasion_clean_16
+#@in occasion_clean_13
+#@in location_clean
+#@in event_clean_9
+#@in location_clean_11
+#@in venue_clean_3
+#@in place_clean_9
+#@in venue_clean_5
+#@in occasion_clean_10
+#@in location_clean_10
+#@in event_clean
+#@in occasion_clean_15
+#@in place_clean_6
+#@in dish_count
+#@in sponsor_clean_9
+#@in occasion_clean_11
+#@in sponsor_clean_4
+#@in location_clean_2
+#@in occasion_clean_3
+#@in occasion_clean_19
+#@in location_clean_3
+#@in physical_description_type
+#@in location_clean_6
+#@in physical_description_2_1
+#@in sponsor_clean_5
+#@in event_clean_7
+#@in location_clean_8
+#@in place_clean_8
+#@in event_clean_6
+#@in location_clean_1
+#@in occasion_clean_7
+#@in place_clean_3
+#@in location_clean_5
+#@in location_clean_12
+#@in physical_description_5_1
+#@in place_clean_1
+#@out CleanData
+#@begin core/text-transform0 #@desc Text transform on cells in column id using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in id
+#@out id_1
+#@end core/text-transform0
+#@begin core/text-transform1 #@desc Text transform on cells in column page_count using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in page_count
+#@out page_count_1
+#@end core/text-transform1
+#@begin core/text-transform2 #@desc Text transform on cells in column dish_count using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in dish_count
+#@out dish_count_1
+#@end core/text-transform2
+#@begin core/text-transform3 #@desc Text transform on cells in column date using expression value.toDate()
+#@param expression:value.toDate()
+#@in date
+#@out date_1
+#@end core/text-transform3
+#@begin core/mass-edit4 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean
+#@out sponsor_clean_1
+#@end core/mass-edit4
+#@begin core/mass-edit5 #@desc Mass edit cells in column event_clean
+#@param expression:value
+#@in event_clean
+#@out event_clean_1
+#@end core/mass-edit5
+#@begin core/mass-edit6 #@desc Mass edit cells in column venue_clean
+#@param expression:value
+#@in venue_clean
+#@out venue_clean_1
+#@end core/mass-edit6
+#@begin core/text-transform7 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"[\",\"\")
+#@param expression:grel:value.replace("[","")
+#@in place_clean
+#@out place_clean_1
+#@end core/text-transform7
+#@begin core/text-transform8 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"]\",\"\")
+#@param expression:grel:value.replace("]","")
+#@in place_clean_1
+#@out place_clean_2
+#@end core/text-transform8
+#@begin core/text-transform9 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\";\",\"\")
+#@param expression:grel:value.replace(";","")
+#@in place_clean_2
+#@out place_clean_3
+#@end core/text-transform9
+#@begin core/text-transform10 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"(\",\"\")
+#@param expression:grel:value.replace("(","")
+#@in place_clean_3
+#@out place_clean_4
+#@end core/text-transform10
+#@begin core/text-transform11 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\")\",\"\")
+#@param expression:grel:value.replace(")","")
+#@in place_clean_4
+#@out place_clean_5
+#@end core/text-transform11
+#@begin core/text-transform12 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"?\",\"\")
+#@param expression:grel:value.replace("?","")
+#@in place_clean_5
+#@out place_clean_6
+#@end core/text-transform12
+#@begin core/text-transform13 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"\\'\",\"\")
+#@param expression:grel:value.replace("\\'","")
+#@in place_clean_6
+#@out place_clean_7
+#@end core/text-transform13
+#@begin core/text-transform14 #@desc Text transform on cells in column place_clean using expression grel:value.replace(\"\\\"\",\"\")
+#@param expression:grel:value.replace("\\"","")
+#@in place_clean_7
+#@out place_clean_8
+#@end core/text-transform14
+#@begin core/mass-edit15 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean
+#@out occasion_clean_1
+#@end core/mass-edit15
+#@begin core/mass-edit16 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_1
+#@out occasion_clean_2
+#@end core/mass-edit16
+#@begin core/mass-edit17 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_2
+#@out occasion_clean_3
+#@end core/mass-edit17
+#@begin core/mass-edit18 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_3
+#@out occasion_clean_4
+#@end core/mass-edit18
+#@begin core/mass-edit19 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_4
+#@out occasion_clean_5
+#@end core/mass-edit19
+#@begin core/mass-edit20 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_5
+#@out occasion_clean_6
+#@end core/mass-edit20
+#@begin core/mass-edit21 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_6
+#@out occasion_clean_7
+#@end core/mass-edit21
+#@begin core/mass-edit22 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_7
+#@out occasion_clean_8
+#@end core/mass-edit22
+#@begin core/mass-edit23 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_8
+#@out occasion_clean_9
+#@end core/mass-edit23
+#@begin core/mass-edit24 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_9
+#@out occasion_clean_10
+#@end core/mass-edit24
+#@begin core/mass-edit25 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_10
+#@out occasion_clean_11
+#@end core/mass-edit25
+#@begin core/mass-edit26 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_11
+#@out occasion_clean_12
+#@end core/mass-edit26
+#@begin core/mass-edit27 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_12
+#@out occasion_clean_13
+#@end core/mass-edit27
+#@begin core/mass-edit28 #@desc Mass edit cells in column occasion_clean
+#@param expression:value
+#@in occasion_clean_13
+#@out occasion_clean_14
+#@end core/mass-edit28
+#@begin core/text-transform29 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\"[\",\"\")
+#@param expression:grel:value.replace("[","")
+#@in occasion_clean_14
+#@out occasion_clean_15
+#@end core/text-transform29
+#@begin core/text-transform30 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\"]\",\"\")
+#@param expression:grel:value.replace("]","")
+#@in occasion_clean_15
+#@out occasion_clean_16
+#@end core/text-transform30
+#@begin core/text-transform31 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\"(\",\"\")
+#@param expression:grel:value.replace("(","")
+#@in occasion_clean_16
+#@out occasion_clean_17
+#@end core/text-transform31
+#@begin core/text-transform32 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\")\",\"\")
+#@param expression:grel:value.replace(")","")
+#@in occasion_clean_17
+#@out occasion_clean_18
+#@end core/text-transform32
+#@begin core/text-transform33 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\"\\\"\",\"\")
+#@param expression:grel:value.replace("\\"","")
+#@in occasion_clean_18
+#@out occasion_clean_19
+#@end core/text-transform33
+#@begin core/text-transform34 #@desc Text transform on cells in column occasion_clean using expression grel:value.replace(\";\",\"\")
+#@param expression:grel:value.replace(";","")
+#@in occasion_clean_19
+#@out occasion_clean_20
+#@end core/text-transform34
+#@begin core/text-transform35 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\"(\",\"\")
+#@param expression:grel:value.replace("(","")
+#@in sponsor_clean_1
+#@out sponsor_clean_2
+#@end core/text-transform35
+#@begin core/text-transform36 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\")\",\"\")
+#@param expression:grel:value.replace(")","")
+#@in sponsor_clean_2
+#@out sponsor_clean_3
+#@end core/text-transform36
+#@begin core/text-transform37 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\"[\",\"\")
+#@param expression:grel:value.replace("[","")
+#@in sponsor_clean_3
+#@out sponsor_clean_4
+#@end core/text-transform37
+#@begin core/text-transform38 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\"]\",\"\")
+#@param expression:grel:value.replace("]","")
+#@in sponsor_clean_4
+#@out sponsor_clean_5
+#@end core/text-transform38
+#@begin core/text-transform39 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\"\\\"\",\"\")
+#@param expression:grel:value.replace("\\"","")
+#@in sponsor_clean_5
+#@out sponsor_clean_6
+#@end core/text-transform39
+#@begin core/text-transform40 #@desc Text transform on cells in column sponsor_clean using expression grel:value.replace(\"?\",\"\")
+#@param expression:grel:value.replace("?","")
+#@in sponsor_clean_6
+#@out sponsor_clean_7
+#@end core/text-transform40
+#@begin core/mass-edit41 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_7
+#@out sponsor_clean_8
+#@end core/mass-edit41
+#@begin core/mass-edit42 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_8
+#@out sponsor_clean_9
+#@end core/mass-edit42
+#@begin core/mass-edit43 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_9
+#@out sponsor_clean_10
+#@end core/mass-edit43
+#@begin core/mass-edit44 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_10
+#@out sponsor_clean_11
+#@end core/mass-edit44
+#@begin core/mass-edit45 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_11
+#@out sponsor_clean_12
+#@end core/mass-edit45
+#@begin core/mass-edit46 #@desc Mass edit cells in column sponsor_clean
+#@param expression:value
+#@in sponsor_clean_12
+#@out sponsor_clean_13
+#@end core/mass-edit46
+#@begin core/text-transform47 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"(\",\"\")
+#@param expression:grel:value.replace("(","")
+#@in event_clean_1
+#@out event_clean_2
+#@end core/text-transform47
+#@begin core/text-transform48 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\")\",\"\")
+#@param expression:grel:value.replace(")","")
+#@in event_clean_2
+#@out event_clean_3
+#@end core/text-transform48
+#@begin core/text-transform49 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"[\",\"\")
+#@param expression:grel:value.replace("[","")
+#@in event_clean_3
+#@out event_clean_4
+#@end core/text-transform49
+#@begin core/text-transform50 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"]\",\"\")
+#@param expression:grel:value.replace("]","")
+#@in event_clean_4
+#@out event_clean_5
+#@end core/text-transform50
+#@begin core/text-transform51 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"\\\"\",\"\")
+#@param expression:grel:value.replace("\\"","")
+#@in event_clean_5
+#@out event_clean_6
+#@end core/text-transform51
+#@begin core/text-transform52 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"\\'\",\"\")
+#@param expression:grel:value.replace("\\'","")
+#@in event_clean_6
+#@out event_clean_7
+#@end core/text-transform52
+#@begin core/text-transform53 #@desc Text transform on cells in column event_clean using expression grel:value.replace(\"?\",\"\")
+#@param expression:grel:value.replace("?","")
+#@in event_clean_7
+#@out event_clean_8
+#@end core/text-transform53
+#@begin core/mass-edit54 #@desc Mass edit cells in column event_clean
+#@param expression:value
+#@in event_clean_8
+#@out event_clean_9
+#@end core/mass-edit54
+#@begin core/text-transform55 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"(\",\"\")
+#@param expression:grel:value.replace("(","")
+#@in venue_clean_1
+#@out venue_clean_2
+#@end core/text-transform55
+#@begin core/text-transform56 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\")\",\"\")
+#@param expression:grel:value.replace(")","")
+#@in venue_clean_2
+#@out venue_clean_3
+#@end core/text-transform56
+#@begin core/text-transform57 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"[\",\"\")
+#@param expression:grel:value.replace("[","")
+#@in venue_clean_3
+#@out venue_clean_4
+#@end core/text-transform57
+#@begin core/text-transform58 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"]\",\"\")
+#@param expression:grel:value.replace("]","")
+#@in venue_clean_4
+#@out venue_clean_5
+#@end core/text-transform58
+#@begin core/text-transform59 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"\\\"\",\"\")
+#@param expression:grel:value.replace("\\"","")
+#@in venue_clean_5
+#@out venue_clean_6
+#@end core/text-transform59
+#@begin core/text-transform60 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"\\'\",\"\")
+#@param expression:grel:value.replace("\\'","")
+#@in venue_clean_6
+#@out venue_clean_7
+#@end core/text-transform60
+#@begin core/text-transform61 #@desc Text transform on cells in column venue_clean using expression grel:value.replace(\"?\",\"\")
+#@param expression:grel:value.replace("?","")
+#@in venue_clean_7
+#@out venue_clean_8
+#@end core/text-transform61
+#@begin core/mass-edit62 #@desc Mass edit cells in column venue_clean
+#@param expression:value
+#@in venue_clean_8
+#@out venue_clean_9
+#@end core/mass-edit62
+#@begin core/mass-edit63 #@desc Mass edit cells in column venue_clean
+#@param expression:value
+#@in venue_clean_9
+#@out venue_clean_10
+#@end core/mass-edit63
+#@begin core/text-transform64 #@desc Text transform on cells in column location_clean using expression grel:value.replace(\"(\",\"\")replace(\")\",\"\")replace(\"[\",\"\")replace(\"]\",\"\")replace(\"?\",\"\")replace(\"\\\"\",\"\")replace(\"\\'\",\"\")
+#@param expression:grel:value.replace("(","")replace(")","")replace("[","")replace("]","")replace("?","")replace("\\"","")replace("\\'","")
+#@in location_clean
+#@out location_clean_1
+#@end core/text-transform64
+#@begin core/text-transform65 #@desc Text transform on cells in column location_clean using expression grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\")
+#@param expression:grel:value.replace("(","").replace(")","").replace("[","").replace("]","").replace("?","").replace("\\"","").replace("\\'","")
+#@in location_clean_1
+#@out location_clean_2
+#@end core/text-transform65
+#@begin core/text-transform66 #@desc Text transform on cells in column location_clean using expression grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\").replace(\"\\\\\",\"\")
+#@param expression:grel:value.replace("(","").replace(")","").replace("[","").replace("]","").replace("?","").replace("\\"","").replace("\\'","").replace("\\\\","")
+#@in location_clean_2
+#@out location_clean_3
+#@end core/text-transform66
+#@begin core/mass-edit67 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_3
+#@out location_clean_4
+#@end core/mass-edit67
+#@begin core/mass-edit68 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_4
+#@out location_clean_5
+#@end core/mass-edit68
+#@begin core/mass-edit69 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_5
+#@out location_clean_6
+#@end core/mass-edit69
+#@begin core/mass-edit70 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_6
+#@out location_clean_7
+#@end core/mass-edit70
+#@begin core/mass-edit71 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_7
+#@out location_clean_8
+#@end core/mass-edit71
+#@begin core/mass-edit72 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_8
+#@out location_clean_9
+#@end core/mass-edit72
+#@begin core/mass-edit73 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_9
+#@out location_clean_10
+#@end core/mass-edit73
+#@begin core/mass-edit74 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_10
+#@out location_clean_11
+#@end core/mass-edit74
+#@begin core/mass-edit75 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_11
+#@out location_clean_12
+#@end core/mass-edit75
+#@begin core/mass-edit76 #@desc Mass edit cells in column location_clean
+#@param expression:value
+#@in location_clean_12
+#@out location_clean_13
+#@end core/mass-edit76
+#@begin core/column-split77 #@desc Split column physical_description by separator
+#@param removeOriginalColumn:False
+#@param separator:;
+#@in physical_description
+#@out physical_description_1
+#@out physical_description_1_1
+#@out physical_description_2_1
+#@out physical_description_3_1
+#@out physical_description_4_1
+#@out physical_description_5_1
+#@out physical_description_6_1
+#@out physical_description_7_1
+#@end core/column-split77
+#@begin core/column-rename78 #@desc Rename column physical_description 1 to physical_description_type
+#@param oldColumnName:physical_description_1
+#@param newColumnName:physical_description_type
+#@in physical_description_1_1
+#@out physical_description_type
+#@end core/column-rename78
+#@begin core/text-transform79 #@desc Text transform on cells in column sponsor_clean using expression value.trim()
+#@param expression:value.trim()
+#@in sponsor_clean_13
+#@out sponsor_clean_14
+#@end core/text-transform79
+#@begin core/text-transform80 #@desc Text transform on cells in column sponsor_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in sponsor_clean_14
+#@out sponsor_clean_15
+#@end core/text-transform80
+#@begin core/text-transform81 #@desc Text transform on cells in column event_clean using expression value.trim()
+#@param expression:value.trim()
+#@in event_clean_9
+#@out event_clean_10
+#@end core/text-transform81
+#@begin core/text-transform82 #@desc Text transform on cells in column event_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in event_clean_10
+#@out event_clean_11
+#@end core/text-transform82
+#@begin core/text-transform83 #@desc Text transform on cells in column venue_clean using expression value.trim()
+#@param expression:value.trim()
+#@in venue_clean_10
+#@out venue_clean_11
+#@end core/text-transform83
+#@begin core/text-transform84 #@desc Text transform on cells in column venue_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in venue_clean_11
+#@out venue_clean_12
+#@end core/text-transform84
+#@begin core/text-transform85 #@desc Text transform on cells in column place_clean using expression value.trim()
+#@param expression:value.trim()
+#@in place_clean_8
+#@out place_clean_9
+#@end core/text-transform85
+#@begin core/text-transform86 #@desc Text transform on cells in column place_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in place_clean_9
+#@out place_clean_10
+#@end core/text-transform86
+#@begin core/text-transform87 #@desc Text transform on cells in column physical_description_type using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_type
+#@out physical_description_type_1
+#@end core/text-transform87
+#@begin core/text-transform88 #@desc Text transform on cells in column physical_description_type using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_type_1
+#@out physical_description_type_2
+#@end core/text-transform88
+#@begin core/text-transform89 #@desc Text transform on cells in column physical_description 2 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_2_1
+#@out physical_description_2_1
+#@end core/text-transform89
+#@begin core/text-transform90 #@desc Text transform on cells in column physical_description 2 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_2_1
+#@out physical_description_2_2
+#@end core/text-transform90
+#@begin core/text-transform91 #@desc Text transform on cells in column physical_description 3 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_3_1
+#@out physical_description_3_1
+#@end core/text-transform91
+#@begin core/text-transform92 #@desc Text transform on cells in column physical_description 3 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_3_1
+#@out physical_description_3_2
+#@end core/text-transform92
+#@begin core/text-transform93 #@desc Text transform on cells in column physical_description 4 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_4_1
+#@out physical_description_4_1
+#@end core/text-transform93
+#@begin core/text-transform94 #@desc Text transform on cells in column physical_description 4 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_4_1
+#@out physical_description_4_2
+#@end core/text-transform94
+#@begin core/text-transform95 #@desc Text transform on cells in column physical_description 5 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_5_1
+#@out physical_description_5_1
+#@end core/text-transform95
+#@begin core/text-transform96 #@desc Text transform on cells in column physical_description 5 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_5_1
+#@out physical_description_5_2
+#@end core/text-transform96
+#@begin core/text-transform97 #@desc Text transform on cells in column physical_description 6 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_6_1
+#@out physical_description_6_1
+#@end core/text-transform97
+#@begin core/text-transform98 #@desc Text transform on cells in column physical_description 6 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_6_1
+#@out physical_description_6_2
+#@end core/text-transform98
+#@begin core/text-transform99 #@desc Text transform on cells in column physical_description 7 using expression value.trim()
+#@param expression:value.trim()
+#@in physical_description_7_1
+#@out physical_description_7_1
+#@end core/text-transform99
+#@begin core/text-transform100 #@desc Text transform on cells in column physical_description 7 using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in physical_description_7_1
+#@out physical_description_7_2
+#@end core/text-transform100
+#@begin core/text-transform101 #@desc Text transform on cells in column occasion_clean using expression value.trim()
+#@param expression:value.trim()
+#@in occasion_clean_20
+#@out occasion_clean_21
+#@end core/text-transform101
+#@begin core/text-transform102 #@desc Text transform on cells in column occasion_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in occasion_clean_21
+#@out occasion_clean_22
+#@end core/text-transform102
+#@begin core/text-transform103 #@desc Text transform on cells in column location_clean using expression value.trim()
+#@param expression:value.trim()
+#@in location_clean_13
+#@out location_clean_14
+#@end core/text-transform103
+#@begin core/text-transform104 #@desc Text transform on cells in column location_clean using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in location_clean_14
+#@out location_clean_15
+#@end core/text-transform104
+#@begin core/mass-edit105 #@desc Mass edit cells in column currency
+#@param expression:value
+#@in currency
+#@out currency_1
+#@end core/mass-edit105
+#@begin core/mass-edit106 #@desc Mass edit cells in column currency_symbol
+#@param expression:value
+#@in currency_symbol
+#@out currency_symbol_1
+#@end core/mass-edit106
+#@begin CombineDataCleaningChanges
+#@in id_1
+#@in page_count_1
+#@in dish_count_1
+#@in date_1
+#@in sponsor_clean_15
+#@in event_clean_11
+#@in venue_clean_12
+#@in place_clean_10
+#@in occasion_clean_22
+#@in location_clean_15
+#@in physical_description_1
+#@in physical_description_1
+#@in physical_description_type_2
+#@in physical_description_2_2
+#@in physical_description_3_2
+#@in physical_description_4_2
+#@in physical_description_5_2
+#@in physical_description_6_2
+#@in physical_description_7_2
+#@in currency_1
+#@in currency_symbol_1
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR
