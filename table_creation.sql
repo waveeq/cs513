@@ -5,7 +5,6 @@ CREATE TABLE Dish (
     main_ingredient_seafood  TEXT,
     main_ingredient_steak  TEXT,
     main_ingredient_chicken  TEXT,
-    description TEXT,
     menus_appeared   INTEGER,
     times_appeared   INTEGER ,
     first_appeared   INTEGER,
