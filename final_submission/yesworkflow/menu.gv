@@ -1,0 +1,641 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=Parallel_OR
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+"core/text-transform0" [shape=record rankdir=LR label="{<f0> core/text-transform0 |<f1> Text transform on cells in column id using expression value.toNumber()}"];
+"core/text-transform1" [shape=record rankdir=LR label="{<f0> core/text-transform1 |<f1> Text transform on cells in column page_count using expression value.toNumber()}"];
+"core/text-transform2" [shape=record rankdir=LR label="{<f0> core/text-transform2 |<f1> Text transform on cells in column dish_count using expression value.toNumber()}"];
+"core/text-transform3" [shape=record rankdir=LR label="{<f0> core/text-transform3 |<f1> Text transform on cells in column date using expression value.toDate()}"];
+"core/mass-edit4" [shape=record rankdir=LR label="{<f0> core/mass-edit4 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit5" [shape=record rankdir=LR label="{<f0> core/mass-edit5 |<f1> Mass edit cells in column event_clean}"];
+"core/mass-edit6" [shape=record rankdir=LR label="{<f0> core/mass-edit6 |<f1> Mass edit cells in column venue_clean}"];
+"core/text-transform7" [shape=record rankdir=LR label="{<f0> core/text-transform7 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"[\",\"\")}"];
+"core/text-transform8" [shape=record rankdir=LR label="{<f0> core/text-transform8 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"]\",\"\")}"];
+"core/text-transform9" [shape=record rankdir=LR label="{<f0> core/text-transform9 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\";\",\"\")}"];
+"core/text-transform10" [shape=record rankdir=LR label="{<f0> core/text-transform10 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"(\",\"\")}"];
+"core/text-transform11" [shape=record rankdir=LR label="{<f0> core/text-transform11 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\")\",\"\")}"];
+"core/text-transform12" [shape=record rankdir=LR label="{<f0> core/text-transform12 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"?\",\"\")}"];
+"core/text-transform13" [shape=record rankdir=LR label="{<f0> core/text-transform13 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"\\'\",\"\")}"];
+"core/text-transform14" [shape=record rankdir=LR label="{<f0> core/text-transform14 |<f1> Text transform on cells in column place_clean using expression grel\:value.replace(\"\\\"\",\"\")}"];
+"core/mass-edit15" [shape=record rankdir=LR label="{<f0> core/mass-edit15 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit16" [shape=record rankdir=LR label="{<f0> core/mass-edit16 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit17" [shape=record rankdir=LR label="{<f0> core/mass-edit17 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit18" [shape=record rankdir=LR label="{<f0> core/mass-edit18 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit19" [shape=record rankdir=LR label="{<f0> core/mass-edit19 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit20" [shape=record rankdir=LR label="{<f0> core/mass-edit20 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit21" [shape=record rankdir=LR label="{<f0> core/mass-edit21 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit22" [shape=record rankdir=LR label="{<f0> core/mass-edit22 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit23" [shape=record rankdir=LR label="{<f0> core/mass-edit23 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit24" [shape=record rankdir=LR label="{<f0> core/mass-edit24 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit25" [shape=record rankdir=LR label="{<f0> core/mass-edit25 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit26" [shape=record rankdir=LR label="{<f0> core/mass-edit26 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit27" [shape=record rankdir=LR label="{<f0> core/mass-edit27 |<f1> Mass edit cells in column occasion_clean}"];
+"core/mass-edit28" [shape=record rankdir=LR label="{<f0> core/mass-edit28 |<f1> Mass edit cells in column occasion_clean}"];
+"core/text-transform29" [shape=record rankdir=LR label="{<f0> core/text-transform29 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\"[\",\"\")}"];
+"core/text-transform30" [shape=record rankdir=LR label="{<f0> core/text-transform30 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\"]\",\"\")}"];
+"core/text-transform31" [shape=record rankdir=LR label="{<f0> core/text-transform31 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\"(\",\"\")}"];
+"core/text-transform32" [shape=record rankdir=LR label="{<f0> core/text-transform32 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\")\",\"\")}"];
+"core/text-transform33" [shape=record rankdir=LR label="{<f0> core/text-transform33 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\"\\\"\",\"\")}"];
+"core/text-transform34" [shape=record rankdir=LR label="{<f0> core/text-transform34 |<f1> Text transform on cells in column occasion_clean using expression grel\:value.replace(\";\",\"\")}"];
+"core/text-transform35" [shape=record rankdir=LR label="{<f0> core/text-transform35 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\"(\",\"\")}"];
+"core/text-transform36" [shape=record rankdir=LR label="{<f0> core/text-transform36 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\")\",\"\")}"];
+"core/text-transform37" [shape=record rankdir=LR label="{<f0> core/text-transform37 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\"[\",\"\")}"];
+"core/text-transform38" [shape=record rankdir=LR label="{<f0> core/text-transform38 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\"]\",\"\")}"];
+"core/text-transform39" [shape=record rankdir=LR label="{<f0> core/text-transform39 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\"\\\"\",\"\")}"];
+"core/text-transform40" [shape=record rankdir=LR label="{<f0> core/text-transform40 |<f1> Text transform on cells in column sponsor_clean using expression grel\:value.replace(\"?\",\"\")}"];
+"core/mass-edit41" [shape=record rankdir=LR label="{<f0> core/mass-edit41 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit42" [shape=record rankdir=LR label="{<f0> core/mass-edit42 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit43" [shape=record rankdir=LR label="{<f0> core/mass-edit43 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit44" [shape=record rankdir=LR label="{<f0> core/mass-edit44 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit45" [shape=record rankdir=LR label="{<f0> core/mass-edit45 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/mass-edit46" [shape=record rankdir=LR label="{<f0> core/mass-edit46 |<f1> Mass edit cells in column sponsor_clean}"];
+"core/text-transform47" [shape=record rankdir=LR label="{<f0> core/text-transform47 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"(\",\"\")}"];
+"core/text-transform48" [shape=record rankdir=LR label="{<f0> core/text-transform48 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\")\",\"\")}"];
+"core/text-transform49" [shape=record rankdir=LR label="{<f0> core/text-transform49 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"[\",\"\")}"];
+"core/text-transform50" [shape=record rankdir=LR label="{<f0> core/text-transform50 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"]\",\"\")}"];
+"core/text-transform51" [shape=record rankdir=LR label="{<f0> core/text-transform51 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"\\\"\",\"\")}"];
+"core/text-transform52" [shape=record rankdir=LR label="{<f0> core/text-transform52 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"\\'\",\"\")}"];
+"core/text-transform53" [shape=record rankdir=LR label="{<f0> core/text-transform53 |<f1> Text transform on cells in column event_clean using expression grel\:value.replace(\"?\",\"\")}"];
+"core/mass-edit54" [shape=record rankdir=LR label="{<f0> core/mass-edit54 |<f1> Mass edit cells in column event_clean}"];
+"core/text-transform55" [shape=record rankdir=LR label="{<f0> core/text-transform55 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"(\",\"\")}"];
+"core/text-transform56" [shape=record rankdir=LR label="{<f0> core/text-transform56 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\")\",\"\")}"];
+"core/text-transform57" [shape=record rankdir=LR label="{<f0> core/text-transform57 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"[\",\"\")}"];
+"core/text-transform58" [shape=record rankdir=LR label="{<f0> core/text-transform58 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"]\",\"\")}"];
+"core/text-transform59" [shape=record rankdir=LR label="{<f0> core/text-transform59 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"\\\"\",\"\")}"];
+"core/text-transform60" [shape=record rankdir=LR label="{<f0> core/text-transform60 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"\\'\",\"\")}"];
+"core/text-transform61" [shape=record rankdir=LR label="{<f0> core/text-transform61 |<f1> Text transform on cells in column venue_clean using expression grel\:value.replace(\"?\",\"\")}"];
+"core/mass-edit62" [shape=record rankdir=LR label="{<f0> core/mass-edit62 |<f1> Mass edit cells in column venue_clean}"];
+"core/mass-edit63" [shape=record rankdir=LR label="{<f0> core/mass-edit63 |<f1> Mass edit cells in column venue_clean}"];
+"core/text-transform64" [shape=record rankdir=LR label="{<f0> core/text-transform64 |<f1> Text transform on cells in column location_clean using expression grel\:value.replace(\"(\",\"\")replace(\")\",\"\")replace(\"[\",\"\")replace(\"]\",\"\")replace(\"?\",\"\")replace(\"\\\"\",\"\")replace(\"\\'\",\"\")}"];
+"core/text-transform65" [shape=record rankdir=LR label="{<f0> core/text-transform65 |<f1> Text transform on cells in column location_clean using expression grel\:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\")}"];
+"core/text-transform66" [shape=record rankdir=LR label="{<f0> core/text-transform66 |<f1> Text transform on cells in column location_clean using expression grel\:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\").replace(\"\\\\\",\"\")}"];
+"core/mass-edit67" [shape=record rankdir=LR label="{<f0> core/mass-edit67 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit68" [shape=record rankdir=LR label="{<f0> core/mass-edit68 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit69" [shape=record rankdir=LR label="{<f0> core/mass-edit69 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit70" [shape=record rankdir=LR label="{<f0> core/mass-edit70 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit71" [shape=record rankdir=LR label="{<f0> core/mass-edit71 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit72" [shape=record rankdir=LR label="{<f0> core/mass-edit72 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit73" [shape=record rankdir=LR label="{<f0> core/mass-edit73 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit74" [shape=record rankdir=LR label="{<f0> core/mass-edit74 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit75" [shape=record rankdir=LR label="{<f0> core/mass-edit75 |<f1> Mass edit cells in column location_clean}"];
+"core/mass-edit76" [shape=record rankdir=LR label="{<f0> core/mass-edit76 |<f1> Mass edit cells in column location_clean}"];
+"core/column-split77" [shape=record rankdir=LR label="{<f0> core/column-split77 |<f1> Split column physical_description by separator}"];
+"core/column-rename78" [shape=record rankdir=LR label="{<f0> core/column-rename78 |<f1> Rename column physical_description 1 to physical_description_type}"];
+"core/text-transform79" [shape=record rankdir=LR label="{<f0> core/text-transform79 |<f1> Text transform on cells in column sponsor_clean using expression value.trim()}"];
+"core/text-transform80" [shape=record rankdir=LR label="{<f0> core/text-transform80 |<f1> Text transform on cells in column sponsor_clean using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform81" [shape=record rankdir=LR label="{<f0> core/text-transform81 |<f1> Text transform on cells in column event_clean using expression value.trim()}"];
+"core/text-transform82" [shape=record rankdir=LR label="{<f0> core/text-transform82 |<f1> Text transform on cells in column event_clean using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform83" [shape=record rankdir=LR label="{<f0> core/text-transform83 |<f1> Text transform on cells in column venue_clean using expression value.trim()}"];
+"core/text-transform84" [shape=record rankdir=LR label="{<f0> core/text-transform84 |<f1> Text transform on cells in column venue_clean using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform85" [shape=record rankdir=LR label="{<f0> core/text-transform85 |<f1> Text transform on cells in column place_clean using expression value.trim()}"];
+"core/text-transform86" [shape=record rankdir=LR label="{<f0> core/text-transform86 |<f1> Text transform on cells in column place_clean using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform87" [shape=record rankdir=LR label="{<f0> core/text-transform87 |<f1> Text transform on cells in column physical_description_type using expression value.trim()}"];
+"core/text-transform88" [shape=record rankdir=LR label="{<f0> core/text-transform88 |<f1> Text transform on cells in column physical_description_type using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform90" [shape=record rankdir=LR label="{<f0> core/text-transform90 |<f1> Text transform on cells in column physical_description 2 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform92" [shape=record rankdir=LR label="{<f0> core/text-transform92 |<f1> Text transform on cells in column physical_description 3 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform94" [shape=record rankdir=LR label="{<f0> core/text-transform94 |<f1> Text transform on cells in column physical_description 4 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform96" [shape=record rankdir=LR label="{<f0> core/text-transform96 |<f1> Text transform on cells in column physical_description 5 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform98" [shape=record rankdir=LR label="{<f0> core/text-transform98 |<f1> Text transform on cells in column physical_description 6 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform100" [shape=record rankdir=LR label="{<f0> core/text-transform100 |<f1> Text transform on cells in column physical_description 7 using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform101" [shape=record rankdir=LR label="{<f0> core/text-transform101 |<f1> Text transform on cells in column occasion_clean using expression value.trim()}"];
+"core/text-transform102" [shape=record rankdir=LR label="{<f0> core/text-transform102 |<f1> Text transform on cells in column occasion_clean using expression value.replace(/\\s+/,' ')}"];
+"core/text-transform103" [shape=record rankdir=LR label="{<f0> core/text-transform103 |<f1> Text transform on cells in column location_clean using expression value.trim()}"];
+"core/text-transform104" [shape=record rankdir=LR label="{<f0> core/text-transform104 |<f1> Text transform on cells in column location_clean using expression value.replace(/\\s+/,' ')}"];
+"core/mass-edit105" [shape=record rankdir=LR label="{<f0> core/mass-edit105 |<f1> Mass edit cells in column currency}"];
+"core/mass-edit106" [shape=record rankdir=LR label="{<f0> core/mass-edit106 |<f1> Mass edit cells in column currency_symbol}"];
+CombineDataCleaningChanges
+
+/* Style for nodes representing composite programs (sub-workflows) in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Helvetica]
+
+/* Nodes representing composite programs (sub-workflows) in workflow */
+"core/text-transform89" [shape=record rankdir=LR label="{<f0> core/text-transform89 |<f1> Text transform on cells in column physical_description 2 using expression value.trim()}"];
+"core/text-transform91" [shape=record rankdir=LR label="{<f0> core/text-transform91 |<f1> Text transform on cells in column physical_description 3 using expression value.trim()}"];
+"core/text-transform93" [shape=record rankdir=LR label="{<f0> core/text-transform93 |<f1> Text transform on cells in column physical_description 4 using expression value.trim()}"];
+"core/text-transform95" [shape=record rankdir=LR label="{<f0> core/text-transform95 |<f1> Text transform on cells in column physical_description 5 using expression value.trim()}"];
+"core/text-transform97" [shape=record rankdir=LR label="{<f0> core/text-transform97 |<f1> Text transform on cells in column physical_description 6 using expression value.trim()}"];
+"core/text-transform99" [shape=record rankdir=LR label="{<f0> core/text-transform99 |<f1> Text transform on cells in column physical_description 7 using expression value.trim()}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+CleanData
+id
+page_count
+dish_count
+date
+sponsor_clean
+event_clean
+venue_clean
+place_clean
+place_clean_1
+place_clean_2
+place_clean_3
+place_clean_4
+place_clean_5
+place_clean_6
+place_clean_7
+occasion_clean
+occasion_clean_1
+occasion_clean_2
+occasion_clean_3
+occasion_clean_4
+occasion_clean_5
+occasion_clean_6
+occasion_clean_7
+occasion_clean_8
+occasion_clean_9
+occasion_clean_10
+occasion_clean_11
+occasion_clean_12
+occasion_clean_13
+occasion_clean_14
+occasion_clean_15
+occasion_clean_16
+occasion_clean_17
+occasion_clean_18
+occasion_clean_19
+sponsor_clean_1
+sponsor_clean_2
+sponsor_clean_3
+sponsor_clean_4
+sponsor_clean_5
+sponsor_clean_6
+sponsor_clean_7
+sponsor_clean_8
+sponsor_clean_9
+sponsor_clean_10
+sponsor_clean_11
+sponsor_clean_12
+event_clean_1
+event_clean_2
+event_clean_3
+event_clean_4
+event_clean_5
+event_clean_6
+event_clean_7
+event_clean_8
+venue_clean_1
+venue_clean_2
+venue_clean_3
+venue_clean_4
+venue_clean_5
+venue_clean_6
+venue_clean_7
+venue_clean_8
+venue_clean_9
+location_clean
+location_clean_1
+location_clean_2
+location_clean_3
+location_clean_4
+location_clean_5
+location_clean_6
+location_clean_7
+location_clean_8
+location_clean_9
+location_clean_10
+location_clean_11
+location_clean_12
+physical_description
+physical_description_1_1
+sponsor_clean_13
+sponsor_clean_14
+event_clean_9
+event_clean_10
+venue_clean_10
+venue_clean_11
+place_clean_8
+place_clean_9
+physical_description_type
+physical_description_type_1
+physical_description_2_1
+physical_description_3_1
+physical_description_4_1
+physical_description_5_1
+physical_description_6_1
+physical_description_7_1
+occasion_clean_20
+occasion_clean_21
+location_clean_13
+location_clean_14
+currency
+currency_symbol
+id_1
+page_count_1
+dish_count_1
+date_1
+sponsor_clean_15
+event_clean_11
+venue_clean_12
+place_clean_10
+occasion_clean_22
+location_clean_15
+physical_description_1
+physical_description_type_2
+physical_description_2_2
+physical_description_3_2
+physical_description_4_2
+physical_description_5_2
+physical_description_6_2
+physical_description_7_2
+currency_1
+currency_symbol_1
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+"expression:value.toNumber()"
+"expression:value.toDate()"
+"expression:value"
+"expression:grel:value.replace(\"[\",\"\")"
+"expression:grel:value.replace(\"]\",\"\")"
+"expression:grel:value.replace(\";\",\"\")"
+"expression:grel:value.replace(\"(\",\"\")"
+"expression:grel:value.replace(\")\",\"\")"
+"expression:grel:value.replace(\"?\",\"\")"
+"expression:grel:value.replace(\"\\'\",\"\")"
+"expression:grel:value.replace(\"\\\"\",\"\")"
+"expression:grel:value.replace(\"(\",\"\")replace(\")\",\"\")replace(\"[\",\"\")replace(\"]\",\"\")replace(\"?\",\"\")replace(\"\\\"\",\"\")replace(\"\\'\",\"\")"
+"expression:grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\")"
+"expression:grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\").replace(\"\\\\\",\"\")"
+"removeOriginalColumn:False"
+"separator:;"
+"oldColumnName:physical_description_1"
+"newColumnName:physical_description_type"
+"expression:value.trim()"
+"expression:value.replace(/\\s+/,'_')"
+
+/* Edges representing connections between programs and channels */
+"core/text-transform0" -> id_1
+"expression:value.toNumber()" -> "core/text-transform0"
+id -> "core/text-transform0"
+"core/text-transform1" -> page_count_1
+"expression:value.toNumber()" -> "core/text-transform1"
+page_count -> "core/text-transform1"
+"core/text-transform2" -> dish_count_1
+"expression:value.toNumber()" -> "core/text-transform2"
+dish_count -> "core/text-transform2"
+"core/text-transform3" -> date_1
+"expression:value.toDate()" -> "core/text-transform3"
+date -> "core/text-transform3"
+"core/mass-edit4" -> sponsor_clean_1
+"expression:value" -> "core/mass-edit4"
+sponsor_clean -> "core/mass-edit4"
+"core/mass-edit5" -> event_clean_1
+"expression:value" -> "core/mass-edit5"
+event_clean -> "core/mass-edit5"
+"core/mass-edit6" -> venue_clean_1
+"expression:value" -> "core/mass-edit6"
+venue_clean -> "core/mass-edit6"
+"core/text-transform7" -> place_clean_1
+"expression:grel:value.replace(\"[\",\"\")" -> "core/text-transform7"
+place_clean -> "core/text-transform7"
+"core/text-transform8" -> place_clean_2
+"expression:grel:value.replace(\"]\",\"\")" -> "core/text-transform8"
+place_clean_1 -> "core/text-transform8"
+"core/text-transform9" -> place_clean_3
+"expression:grel:value.replace(\";\",\"\")" -> "core/text-transform9"
+place_clean_2 -> "core/text-transform9"
+"core/text-transform10" -> place_clean_4
+"expression:grel:value.replace(\"(\",\"\")" -> "core/text-transform10"
+place_clean_3 -> "core/text-transform10"
+"core/text-transform11" -> place_clean_5
+"expression:grel:value.replace(\")\",\"\")" -> "core/text-transform11"
+place_clean_4 -> "core/text-transform11"
+"core/text-transform12" -> place_clean_6
+"expression:grel:value.replace(\"?\",\"\")" -> "core/text-transform12"
+place_clean_5 -> "core/text-transform12"
+"core/text-transform13" -> place_clean_7
+"expression:grel:value.replace(\"\\'\",\"\")" -> "core/text-transform13"
+place_clean_6 -> "core/text-transform13"
+"core/text-transform14" -> place_clean_8
+"expression:grel:value.replace(\"\\\"\",\"\")" -> "core/text-transform14"
+place_clean_7 -> "core/text-transform14"
+"core/mass-edit15" -> occasion_clean_1
+"expression:value" -> "core/mass-edit15"
+occasion_clean -> "core/mass-edit15"
+"core/mass-edit16" -> occasion_clean_2
+"expression:value" -> "core/mass-edit16"
+occasion_clean_1 -> "core/mass-edit16"
+"core/mass-edit17" -> occasion_clean_3
+"expression:value" -> "core/mass-edit17"
+occasion_clean_2 -> "core/mass-edit17"
+"core/mass-edit18" -> occasion_clean_4
+"expression:value" -> "core/mass-edit18"
+occasion_clean_3 -> "core/mass-edit18"
+"core/mass-edit19" -> occasion_clean_5
+"expression:value" -> "core/mass-edit19"
+occasion_clean_4 -> "core/mass-edit19"
+"core/mass-edit20" -> occasion_clean_6
+"expression:value" -> "core/mass-edit20"
+occasion_clean_5 -> "core/mass-edit20"
+"core/mass-edit21" -> occasion_clean_7
+"expression:value" -> "core/mass-edit21"
+occasion_clean_6 -> "core/mass-edit21"
+"core/mass-edit22" -> occasion_clean_8
+"expression:value" -> "core/mass-edit22"
+occasion_clean_7 -> "core/mass-edit22"
+"core/mass-edit23" -> occasion_clean_9
+"expression:value" -> "core/mass-edit23"
+occasion_clean_8 -> "core/mass-edit23"
+"core/mass-edit24" -> occasion_clean_10
+"expression:value" -> "core/mass-edit24"
+occasion_clean_9 -> "core/mass-edit24"
+"core/mass-edit25" -> occasion_clean_11
+"expression:value" -> "core/mass-edit25"
+occasion_clean_10 -> "core/mass-edit25"
+"core/mass-edit26" -> occasion_clean_12
+"expression:value" -> "core/mass-edit26"
+occasion_clean_11 -> "core/mass-edit26"
+"core/mass-edit27" -> occasion_clean_13
+"expression:value" -> "core/mass-edit27"
+occasion_clean_12 -> "core/mass-edit27"
+"core/mass-edit28" -> occasion_clean_14
+"expression:value" -> "core/mass-edit28"
+occasion_clean_13 -> "core/mass-edit28"
+"core/text-transform29" -> occasion_clean_15
+"expression:grel:value.replace(\"[\",\"\")" -> "core/text-transform29"
+occasion_clean_14 -> "core/text-transform29"
+"core/text-transform30" -> occasion_clean_16
+"expression:grel:value.replace(\"]\",\"\")" -> "core/text-transform30"
+occasion_clean_15 -> "core/text-transform30"
+"core/text-transform31" -> occasion_clean_17
+"expression:grel:value.replace(\"(\",\"\")" -> "core/text-transform31"
+occasion_clean_16 -> "core/text-transform31"
+"core/text-transform32" -> occasion_clean_18
+"expression:grel:value.replace(\")\",\"\")" -> "core/text-transform32"
+occasion_clean_17 -> "core/text-transform32"
+"core/text-transform33" -> occasion_clean_19
+"expression:grel:value.replace(\"\\\"\",\"\")" -> "core/text-transform33"
+occasion_clean_18 -> "core/text-transform33"
+"core/text-transform34" -> occasion_clean_20
+"expression:grel:value.replace(\";\",\"\")" -> "core/text-transform34"
+occasion_clean_19 -> "core/text-transform34"
+"core/text-transform35" -> sponsor_clean_2
+"expression:grel:value.replace(\"(\",\"\")" -> "core/text-transform35"
+sponsor_clean_1 -> "core/text-transform35"
+"core/text-transform36" -> sponsor_clean_3
+"expression:grel:value.replace(\")\",\"\")" -> "core/text-transform36"
+sponsor_clean_2 -> "core/text-transform36"
+"core/text-transform37" -> sponsor_clean_4
+"expression:grel:value.replace(\"[\",\"\")" -> "core/text-transform37"
+sponsor_clean_3 -> "core/text-transform37"
+"core/text-transform38" -> sponsor_clean_5
+"expression:grel:value.replace(\"]\",\"\")" -> "core/text-transform38"
+sponsor_clean_4 -> "core/text-transform38"
+"core/text-transform39" -> sponsor_clean_6
+"expression:grel:value.replace(\"\\\"\",\"\")" -> "core/text-transform39"
+sponsor_clean_5 -> "core/text-transform39"
+"core/text-transform40" -> sponsor_clean_7
+"expression:grel:value.replace(\"?\",\"\")" -> "core/text-transform40"
+sponsor_clean_6 -> "core/text-transform40"
+"core/mass-edit41" -> sponsor_clean_8
+"expression:value" -> "core/mass-edit41"
+sponsor_clean_7 -> "core/mass-edit41"
+"core/mass-edit42" -> sponsor_clean_9
+"expression:value" -> "core/mass-edit42"
+sponsor_clean_8 -> "core/mass-edit42"
+"core/mass-edit43" -> sponsor_clean_10
+"expression:value" -> "core/mass-edit43"
+sponsor_clean_9 -> "core/mass-edit43"
+"core/mass-edit44" -> sponsor_clean_11
+"expression:value" -> "core/mass-edit44"
+sponsor_clean_10 -> "core/mass-edit44"
+"core/mass-edit45" -> sponsor_clean_12
+"expression:value" -> "core/mass-edit45"
+sponsor_clean_11 -> "core/mass-edit45"
+"core/mass-edit46" -> sponsor_clean_13
+"expression:value" -> "core/mass-edit46"
+sponsor_clean_12 -> "core/mass-edit46"
+"core/text-transform47" -> event_clean_2
+"expression:grel:value.replace(\"(\",\"\")" -> "core/text-transform47"
+event_clean_1 -> "core/text-transform47"
+"core/text-transform48" -> event_clean_3
+"expression:grel:value.replace(\")\",\"\")" -> "core/text-transform48"
+event_clean_2 -> "core/text-transform48"
+"core/text-transform49" -> event_clean_4
+"expression:grel:value.replace(\"[\",\"\")" -> "core/text-transform49"
+event_clean_3 -> "core/text-transform49"
+"core/text-transform50" -> event_clean_5
+"expression:grel:value.replace(\"]\",\"\")" -> "core/text-transform50"
+event_clean_4 -> "core/text-transform50"
+"core/text-transform51" -> event_clean_6
+"expression:grel:value.replace(\"\\\"\",\"\")" -> "core/text-transform51"
+event_clean_5 -> "core/text-transform51"
+"core/text-transform52" -> event_clean_7
+"expression:grel:value.replace(\"\\'\",\"\")" -> "core/text-transform52"
+event_clean_6 -> "core/text-transform52"
+"core/text-transform53" -> event_clean_8
+"expression:grel:value.replace(\"?\",\"\")" -> "core/text-transform53"
+event_clean_7 -> "core/text-transform53"
+"core/mass-edit54" -> event_clean_9
+"expression:value" -> "core/mass-edit54"
+event_clean_8 -> "core/mass-edit54"
+"core/text-transform55" -> venue_clean_2
+"expression:grel:value.replace(\"(\",\"\")" -> "core/text-transform55"
+venue_clean_1 -> "core/text-transform55"
+"core/text-transform56" -> venue_clean_3
+"expression:grel:value.replace(\")\",\"\")" -> "core/text-transform56"
+venue_clean_2 -> "core/text-transform56"
+"core/text-transform57" -> venue_clean_4
+"expression:grel:value.replace(\"[\",\"\")" -> "core/text-transform57"
+venue_clean_3 -> "core/text-transform57"
+"core/text-transform58" -> venue_clean_5
+"expression:grel:value.replace(\"]\",\"\")" -> "core/text-transform58"
+venue_clean_4 -> "core/text-transform58"
+"core/text-transform59" -> venue_clean_6
+"expression:grel:value.replace(\"\\\"\",\"\")" -> "core/text-transform59"
+venue_clean_5 -> "core/text-transform59"
+"core/text-transform60" -> venue_clean_7
+"expression:grel:value.replace(\"\\'\",\"\")" -> "core/text-transform60"
+venue_clean_6 -> "core/text-transform60"
+"core/text-transform61" -> venue_clean_8
+"expression:grel:value.replace(\"?\",\"\")" -> "core/text-transform61"
+venue_clean_7 -> "core/text-transform61"
+"core/mass-edit62" -> venue_clean_9
+"expression:value" -> "core/mass-edit62"
+venue_clean_8 -> "core/mass-edit62"
+"core/mass-edit63" -> venue_clean_10
+"expression:value" -> "core/mass-edit63"
+venue_clean_9 -> "core/mass-edit63"
+"core/text-transform64" -> location_clean_1
+"expression:grel:value.replace(\"(\",\"\")replace(\")\",\"\")replace(\"[\",\"\")replace(\"]\",\"\")replace(\"?\",\"\")replace(\"\\\"\",\"\")replace(\"\\'\",\"\")" -> "core/text-transform64"
+location_clean -> "core/text-transform64"
+"core/text-transform65" -> location_clean_2
+"expression:grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\")" -> "core/text-transform65"
+location_clean_1 -> "core/text-transform65"
+"core/text-transform66" -> location_clean_3
+"expression:grel:value.replace(\"(\",\"\").replace(\")\",\"\").replace(\"[\",\"\").replace(\"]\",\"\").replace(\"?\",\"\").replace(\"\\\"\",\"\").replace(\"\\'\",\"\").replace(\"\\\\\",\"\")" -> "core/text-transform66"
+location_clean_2 -> "core/text-transform66"
+"core/mass-edit67" -> location_clean_4
+"expression:value" -> "core/mass-edit67"
+location_clean_3 -> "core/mass-edit67"
+"core/mass-edit68" -> location_clean_5
+"expression:value" -> "core/mass-edit68"
+location_clean_4 -> "core/mass-edit68"
+"core/mass-edit69" -> location_clean_6
+"expression:value" -> "core/mass-edit69"
+location_clean_5 -> "core/mass-edit69"
+"core/mass-edit70" -> location_clean_7
+"expression:value" -> "core/mass-edit70"
+location_clean_6 -> "core/mass-edit70"
+"core/mass-edit71" -> location_clean_8
+"expression:value" -> "core/mass-edit71"
+location_clean_7 -> "core/mass-edit71"
+"core/mass-edit72" -> location_clean_9
+"expression:value" -> "core/mass-edit72"
+location_clean_8 -> "core/mass-edit72"
+"core/mass-edit73" -> location_clean_10
+"expression:value" -> "core/mass-edit73"
+location_clean_9 -> "core/mass-edit73"
+"core/mass-edit74" -> location_clean_11
+"expression:value" -> "core/mass-edit74"
+location_clean_10 -> "core/mass-edit74"
+"core/mass-edit75" -> location_clean_12
+"expression:value" -> "core/mass-edit75"
+location_clean_11 -> "core/mass-edit75"
+"core/mass-edit76" -> location_clean_13
+"expression:value" -> "core/mass-edit76"
+location_clean_12 -> "core/mass-edit76"
+"core/column-split77" -> physical_description_1
+"core/column-split77" -> physical_description_1_1
+"core/column-split77" -> physical_description_2_1
+"core/column-split77" -> physical_description_3_1
+"core/column-split77" -> physical_description_4_1
+"core/column-split77" -> physical_description_5_1
+"core/column-split77" -> physical_description_6_1
+"core/column-split77" -> physical_description_7_1
+"removeOriginalColumn:False" -> "core/column-split77"
+"separator:;" -> "core/column-split77"
+physical_description -> "core/column-split77"
+"core/column-rename78" -> physical_description_type
+"oldColumnName:physical_description_1" -> "core/column-rename78"
+"newColumnName:physical_description_type" -> "core/column-rename78"
+physical_description_1_1 -> "core/column-rename78"
+"core/text-transform79" -> sponsor_clean_14
+"expression:value.trim()" -> "core/text-transform79"
+sponsor_clean_13 -> "core/text-transform79"
+"core/text-transform80" -> sponsor_clean_15
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform80"
+sponsor_clean_14 -> "core/text-transform80"
+"core/text-transform81" -> event_clean_10
+"expression:value.trim()" -> "core/text-transform81"
+event_clean_9 -> "core/text-transform81"
+"core/text-transform82" -> event_clean_11
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform82"
+event_clean_10 -> "core/text-transform82"
+"core/text-transform83" -> venue_clean_11
+"expression:value.trim()" -> "core/text-transform83"
+venue_clean_10 -> "core/text-transform83"
+"core/text-transform84" -> venue_clean_12
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform84"
+venue_clean_11 -> "core/text-transform84"
+"core/text-transform85" -> place_clean_9
+"expression:value.trim()" -> "core/text-transform85"
+place_clean_8 -> "core/text-transform85"
+"core/text-transform86" -> place_clean_10
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform86"
+place_clean_9 -> "core/text-transform86"
+"core/text-transform87" -> physical_description_type_1
+"expression:value.trim()" -> "core/text-transform87"
+physical_description_type -> "core/text-transform87"
+"core/text-transform88" -> physical_description_type_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform88"
+physical_description_type_1 -> "core/text-transform88"
+"core/text-transform89" -> physical_description_2_1
+"expression:value.trim()" -> "core/text-transform89"
+physical_description_2_1 -> "core/text-transform89"
+"core/text-transform90" -> physical_description_2_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform90"
+physical_description_2_1 -> "core/text-transform90"
+"core/text-transform91" -> physical_description_3_1
+"expression:value.trim()" -> "core/text-transform91"
+physical_description_3_1 -> "core/text-transform91"
+"core/text-transform92" -> physical_description_3_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform92"
+physical_description_3_1 -> "core/text-transform92"
+"core/text-transform93" -> physical_description_4_1
+"expression:value.trim()" -> "core/text-transform93"
+physical_description_4_1 -> "core/text-transform93"
+"core/text-transform94" -> physical_description_4_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform94"
+physical_description_4_1 -> "core/text-transform94"
+"core/text-transform95" -> physical_description_5_1
+"expression:value.trim()" -> "core/text-transform95"
+physical_description_5_1 -> "core/text-transform95"
+"core/text-transform96" -> physical_description_5_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform96"
+physical_description_5_1 -> "core/text-transform96"
+"core/text-transform97" -> physical_description_6_1
+"expression:value.trim()" -> "core/text-transform97"
+physical_description_6_1 -> "core/text-transform97"
+"core/text-transform98" -> physical_description_6_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform98"
+physical_description_6_1 -> "core/text-transform98"
+"core/text-transform99" -> physical_description_7_1
+"expression:value.trim()" -> "core/text-transform99"
+physical_description_7_1 -> "core/text-transform99"
+"core/text-transform100" -> physical_description_7_2
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform100"
+physical_description_7_1 -> "core/text-transform100"
+"core/text-transform101" -> occasion_clean_21
+"expression:value.trim()" -> "core/text-transform101"
+occasion_clean_20 -> "core/text-transform101"
+"core/text-transform102" -> occasion_clean_22
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform102"
+occasion_clean_21 -> "core/text-transform102"
+"core/text-transform103" -> location_clean_14
+"expression:value.trim()" -> "core/text-transform103"
+location_clean_13 -> "core/text-transform103"
+"core/text-transform104" -> location_clean_15
+"expression:value.replace(/\\s+/,'_')" -> "core/text-transform104"
+location_clean_14 -> "core/text-transform104"
+"core/mass-edit105" -> currency_1
+"expression:value" -> "core/mass-edit105"
+currency -> "core/mass-edit105"
+"core/mass-edit106" -> currency_symbol_1
+"expression:value" -> "core/mass-edit106"
+currency_symbol -> "core/mass-edit106"
+CombineDataCleaningChanges -> CleanData
+id_1 -> CombineDataCleaningChanges
+page_count_1 -> CombineDataCleaningChanges
+dish_count_1 -> CombineDataCleaningChanges
+date_1 -> CombineDataCleaningChanges
+sponsor_clean_15 -> CombineDataCleaningChanges
+event_clean_11 -> CombineDataCleaningChanges
+venue_clean_12 -> CombineDataCleaningChanges
+place_clean_10 -> CombineDataCleaningChanges
+occasion_clean_22 -> CombineDataCleaningChanges
+location_clean_15 -> CombineDataCleaningChanges
+physical_description_1 -> CombineDataCleaningChanges
+physical_description_type_2 -> CombineDataCleaningChanges
+physical_description_2_2 -> CombineDataCleaningChanges
+physical_description_3_2 -> CombineDataCleaningChanges
+physical_description_4_2 -> CombineDataCleaningChanges
+physical_description_5_2 -> CombineDataCleaningChanges
+physical_description_6_2 -> CombineDataCleaningChanges
+physical_description_7_2 -> CombineDataCleaningChanges
+currency_1 -> CombineDataCleaningChanges
+currency_symbol_1 -> CombineDataCleaningChanges
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* End of top-level graph */
+}

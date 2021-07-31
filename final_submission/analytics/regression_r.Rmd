@@ -1,0 +1,72 @@
+---
+title: "regression_test"
+author: "Atif Malik"
+date: "7/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r}
+
+#read data 
+library(readr)
+nypl_menu = read_csv("import_model.csv")
+
+nypl_menu$Menu.sponsor = as.factor(nypl_menu$Menu.sponsor)
+nypl_menu$Menu.event = as.factor(nypl_menu$Menu.event)
+nypl_menu$Menu.place = as.factor(nypl_menu$Menu.place)
+nypl_menu$Menu.location = as.factor(nypl_menu$Menu.location)
+
+nypl_menu$Menu.sponsor_clean = as.factor(nypl_menu$Menu.sponsor_clean)
+nypl_menu$Menu.event_clean = as.factor(nypl_menu$Menu.event_clean)
+nypl_menu$Menu.place_clean = as.factor(nypl_menu$Menu.place_clean)
+nypl_menu$Menu.location_clean = as.factor(nypl_menu$Menu.location_clean)
+
+
+
+#nypl_model_unclean = lm(price ~ I(xpos + ypos+  Menu.sponsor + Menu.event + Menu.place+ Menu.location )^2 , data = nypl_menu)
+
+```
+```{r}
+
+
+nypl_model_unclean = lm(price ~ xpos + ypos +  Menu.event +  Menu.location  , data = nypl_menu)
+summary(nypl_model_unclean)
+```
+
+
+
+```{r}
+nypl_model_clean = lm(price ~ xpos + ypos +  main_ingredient + Menu.event_clean +  Menu.location_clean  , data = nypl_menu)
+
+summary(nypl_model_clean)
+
+```
+
+
+```{r}
+
+plot(nypl_model_unclean)
+
+```
+
+
+```{r}
+
+plot(nypl_model_clean)
+
+```
+
+```{r}
+
+
+nypl_model_unclean_removexy = lm(price ~  Menu.event_clean +  Menu.location_clean + main_ingredient  , data = nypl_menu)
+summary(nypl_model_unclean_removexy)
+```

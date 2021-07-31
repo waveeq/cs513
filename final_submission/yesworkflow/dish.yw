@@ -1,0 +1,177 @@
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
+#@param expression:value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,"_")
+#@param expression:value.replace("\\\\b2","1")
+#@param expression:grel:if(value_==_"",_"Unknown"_,_value)
+#@param expression:value.trim()
+#@param expression:value.replace("\\"","")
+#@param expression:value.replace(/\\s+/,'_')
+#@param expression:value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,"")
+#@param expression:value.toTitlecase()
+#@param expression:value.replace(/^Unknown$/,"_")
+#@param expression:value.replace("Unknown","_")
+#@param index:2
+#@param expression:value.replace(/\\b2/,"1")
+#@in lowest_price
+#@in name_1
+#@in main_ingredient
+#@in name_3
+#@in last_appeared
+#@in menus_appeared
+#@in last_appeared_2
+#@in main_ingredient_1
+#@in first_appeared_3
+#@in name_2
+#@in description
+#@in name_4
+#@in main_ingredient_3
+#@in first_appeared_1
+#@in menus_appeared_1
+#@in first_appeared
+#@in times_appeared_2
+#@in last_appeared_3
+#@in times_appeared
+#@in times_appeared_1
+#@in main_ingredient_2
+#@in last_appeared_1
+#@in first_appeared_2
+#@in name
+#@in highest_price
+#@out CleanData
+#@begin core/column-move0 #@desc Move column main_ingredient to position 2
+#@param index:2
+#@in main_ingredient
+#@out main_ingredient_1
+#@end core/column-move0
+#@begin core/text-transform1 #@desc Text transform on cells in column main_ingredient using expression grel:if(value == \"\", \"Unknown\" , value)
+#@param expression:grel:if(value_==_"",_"Unknown"_,_value)
+#@in main_ingredient_1
+#@out main_ingredient_2
+#@end core/text-transform1
+#@begin core/text-transform2 #@desc Text transform on cells in column name using expression value.toTitlecase()
+#@param expression:value.toTitlecase()
+#@in name
+#@out name_1
+#@end core/text-transform2
+#@begin core/text-transform3 #@desc Text transform on cells in column name using expression value.trim()
+#@param expression:value.trim()
+#@in name_1
+#@out name_2
+#@end core/text-transform3
+#@begin core/text-transform4 #@desc Text transform on cells in column name using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in name_2
+#@out name_3
+#@end core/text-transform4
+#@begin core/text-transform5 #@desc Text transform on cells in column main_ingredient using expression value.trim()
+#@param expression:value.trim()
+#@in main_ingredient_2
+#@out main_ingredient_3
+#@end core/text-transform5
+#@begin core/text-transform6 #@desc Text transform on cells in column menus_appeared using expression value.trim()
+#@param expression:value.trim()
+#@in menus_appeared
+#@out menus_appeared_1
+#@end core/text-transform6
+#@begin core/text-transform7 #@desc Text transform on cells in column times_appeared using expression value.trim()
+#@param expression:value.trim()
+#@in times_appeared
+#@out times_appeared_1
+#@end core/text-transform7
+#@begin core/text-transform8 #@desc Text transform on cells in column first_appeared using expression value.trim()
+#@param expression:value.trim()
+#@in first_appeared
+#@out first_appeared_1
+#@end core/text-transform8
+#@begin core/text-transform9 #@desc Text transform on cells in column last_appeared using expression value.trim()
+#@param expression:value.trim()
+#@in last_appeared
+#@out last_appeared_1
+#@end core/text-transform9
+#@begin core/text-transform10 #@desc Text transform on cells in column lowest_price using expression value.trim()
+#@param expression:value.trim()
+#@in lowest_price
+#@out lowest_price_1
+#@end core/text-transform10
+#@begin core/text-transform11 #@desc Text transform on cells in column highest_price using expression value.trim()
+#@param expression:value.trim()
+#@in highest_price
+#@out highest_price_1
+#@end core/text-transform11
+#@begin core/text-transform12 #@desc Text transform on cells in column times_appeared using expression value.replace(/\\s+/,' ')
+#@param expression:value.replace(/\\s+/,'_')
+#@in times_appeared_1
+#@out times_appeared_2
+#@end core/text-transform12
+#@begin core/text-transform13 #@desc Text transform on cells in column last_appeared using expression value.replace(/\\b2/,\"1\")
+#@param expression:value.replace(/\\b2/,"1")
+#@in last_appeared_1
+#@out last_appeared_2
+#@end core/text-transform13
+#@begin core/text-transform14 #@desc Text transform on cells in column first_appeared using expression value.replace(\"\\\\b2\",\"1\")
+#@param expression:value.replace("\\\\b2","1")
+#@in first_appeared_1
+#@out first_appeared_2
+#@end core/text-transform14
+#@begin core/text-transform15 #@desc Text transform on cells in column first_appeared using expression value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,\"\")
+#@param expression:value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,"")
+#@in first_appeared_2
+#@out first_appeared_3
+#@end core/text-transform15
+#@begin core/text-transform16 #@desc Text transform on cells in column last_appeared using expression value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,\" \")
+#@param expression:value.replace(/^((?!(17|18|19|20)[0-9]{2}).)*$/,"_")
+#@in last_appeared_2
+#@out last_appeared_3
+#@end core/text-transform16
+#@begin core/text-transform17 #@desc Text transform on cells in column main_ingredient using expression value.replace(\"Unknown\",\" \")
+#@param expression:value.replace("Unknown","_")
+#@in main_ingredient_3
+#@out main_ingredient_4
+#@end core/text-transform17
+#@begin core/text-transform18 #@desc Text transform on cells in column name using expression value.replace(/^Unknown$/,\" \")
+#@param expression:value.replace(/^Unknown$/,"_")
+#@in name_3
+#@out name_4
+#@end core/text-transform18
+#@begin core/text-transform19 #@desc Text transform on cells in column menus_appeared using expression value.replace(\"Unknown\",\" \")
+#@param expression:value.replace("Unknown","_")
+#@in menus_appeared_1
+#@out menus_appeared_2
+#@end core/text-transform19
+#@begin core/text-transform20 #@desc Text transform on cells in column times_appeared using expression value.replace(\"Unknown\",\" \")
+#@param expression:value.replace("Unknown","_")
+#@in times_appeared_2
+#@out times_appeared_3
+#@end core/text-transform20
+#@begin core/text-transform21 #@desc Text transform on cells in column first_appeared using expression value.replace(\"Unknown\",\" \")
+#@param expression:value.replace("Unknown","_")
+#@in first_appeared_3
+#@out first_appeared_4
+#@end core/text-transform21
+#@begin core/text-transform22 #@desc Text transform on cells in column last_appeared using expression value.replace(\"Unknown\",\" \")
+#@param expression:value.replace("Unknown","_")
+#@in last_appeared_3
+#@out last_appeared_4
+#@end core/text-transform22
+#@begin core/column-removal23 #@desc Remove column description
+#@in description
+#@out remove-description
+#@end core/column-removal23
+#@begin core/text-transform24 #@desc Text transform on cells in column name using expression value.replace(\"\\\"\",\"\")
+#@param expression:value.replace("\\"","")
+#@in name_4
+#@out name_5
+#@end core/text-transform24
+#@begin CombineDataCleaningChanges
+#@in main_ingredient_4
+#@in name_5
+#@in menus_appeared_2
+#@in times_appeared_3
+#@in first_appeared_4
+#@in last_appeared_4
+#@in lowest_price_1
+#@in highest_price_1
+#@in description
+#@in remove-description
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR
