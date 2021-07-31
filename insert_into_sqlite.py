@@ -1,9 +1,9 @@
 import pandas as pd
 import sqlite3
 
-DATABASE_FILENAME = "NYPL_Menu_Dataset.db"
+DATABASE_FILENAME = "NYPL_Menu_Dataset_updated.db"
 
-dish = pd.read_csv('raw_data/Dish.csv')
+dish = pd.read_csv('Dish_Cleaned.csv')
 print(dish.columns, dish.dtypes)
 
 connection = sqlite3.connect(DATABASE_FILENAME)
@@ -13,7 +13,10 @@ create_dish = """
 CREATE TABLE Dish (
     id    INTEGER PRIMARY KEY,
     name  TEXT,
-    description TEXT,
+    main_ingredient  TEXT,
+    main_ingredient_seafood  TEXT,
+    main_ingredient_steak  TEXT,
+    main_ingredient_chicken  TEXT,
     menus_appeared   INTEGER,
     times_appeared   INTEGER ,
     first_appeared   INTEGER,
