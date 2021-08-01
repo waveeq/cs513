@@ -96,3 +96,26 @@ where xpos < 0 and xpos > 1;
 select count(*) as ypos_violation
 from MenuItem 
 where ypos < 0 and ypos > 1;
+
+
+/* RELATIONSHIP CHECKING */
+
+SELECT count(Menu.id) as Menu_MenuPage_violations
+FROM Menu
+LEFT JOIN MenuPage
+ON MenuPage.menu_id = Menu.id
+WHERE MenuPage.menu_id is NULL;
+
+
+SELECT count(MenuPage.id) as MenuItem_MenuPage_violations
+FROM MenuPage
+LEFT JOIN MenuItem
+ON MenuItem.menu_page_id = MenuPage.id
+WHERE MenuItem.menu_page_id is NULL;
+
+
+SELECT count(Dish.id) as MenuItem_MenuPage_violations
+FROM Dish
+LEFT JOIN MenuItem
+ON MenuItem.dish_id = Dish.id
+WHERE MenuItem.dish_id is NULL;
