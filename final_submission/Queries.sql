@@ -1,71 +1,98 @@
-
-
 /* DISH */
 
-/* Check that each id is unique */
-select id, count(id) as cnt
+--ICV Dish duplicate ID
+select id, count(id) as duplicateCount
 from dish
 group by id
 having count(id)  > 1;
 
-/* check that there are no null ids */
-select * from dish where id is NULL;
+--ICV NULL Id check 
+select * 
+from dish 
+where id is NULL;
 
-/* check that there are no null appearances */
+
+--ICV Dish menu and times appeared.
 select * from dish
-where menus_appeared is NULL or times_appeared is NULL;
+where menus_appeared is NULL 
+or times_appeared is NULL;
 
+
+--ICV Dish evaluation of first_appeared occuring before last_appeared.
 select * from dish
-where cast(first_appeared as year) > cast(last_appeared as year) and last_appeared <> '0';
+where cast(first_appeared as year) > cast(last_appeared as year) 
+and last_appeared <> 0;
 
-select * from dish where (first_appeared between '1851' and '2021');
-select * from dish where (last_appeared between '1851' and '2021');
+--ICV Dish evaluation for first_appeared and lasst_appeared between 1851 and 2021
+select count(*) from dish as total_rows;
+select count(*) from dish where (first_appeared between '1851' and '2021');
+select count(*) from dish where (lasst_appeared between '1851' and '2021');
 
-
-select * from dish where lowest_price > highest_price;
-
-select count(*) from dish where lowest_price < 0;
-select count(*) from dish where highest_price < 0;
+--ICV Dish evaluation, lowest_price should be less than or equal to highest_price.
+select count(*) from dish where lowest_price > highest_price;
 
 
 /* MENU */
 
-select id, count(id) as cnt
+--ICV Menu duplicate ID
+select id, count(id) as duplicateCount
 from menu
 group by id
 having count(id)  > 1;
 
-select * from menu where id is NULL;
+--ICV Menu NULL ID evaluation
+select count(*) 
+from menu 
+where id is NULL;
 
+--ICV sponsor_clean NULL or Blank 
+select * from menu where sponsor_clean is NULL or '';
+
+--ICV page_count NULL or Blank 
 select * from menu where page_count is NULL or '';
 
-/* MENU PAGE */
 
-select id, count(id) as cnt
-from menupage
+
+/* MENUPAGE */
+
+--ICV MenuPage duplicate ID
+select id, count(id) as duplicateCount
+from MenuPage
 group by id
 having count(id)  > 1;
 
+--ICV MenuPage NULL ID
+select count(*) 
+from MenuPage 
+where id is NULL;
 
-select * from menupage where id is NULL;
-select * from menupage where menu_id is NULL;
+--ICV MenuPage page_number 0 and NULL check
+select count(*) 
+from page 
+where page_number  is NULL
+or page_number  = 0;
 
-/* ITEM */
 
-select id, count(id) as cnt
-from menuitem
+/* MENUITEM */
+
+--ICV MenuItem duplicate ID
+select id, count(id) as duplicateCount
+from MenuItem
 group by id
 having count(id)  > 1;
 
-select * from menuitem where id is NULL;
+--ICV MenuItem NULL ID
+select count(*)
+from MenuItem 
+where id is NULL;
 
-select *
-from menuitem where dish_id is NULL;
+--ICV MenuItem NULL ID
+select count(*) as xpos_violation
+from MenuItem 
+where xpos < 0 and xpos > 1;
 
-select * from menuitem where updated_at < created_at;
 
-select * from menuitem where price < 0;
-
-select * from menuitem where xpos < 0 and xpos > 1;
-select * from menuitem where ypos < 0 and xpos > 1;
-
+--ICV MenuItem NULL ID
+select count(*) as ypos_violation
+from MenuItem 
+where ypos < 0 and ypos > 1;
